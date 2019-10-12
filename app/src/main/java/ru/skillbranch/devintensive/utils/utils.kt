@@ -36,6 +36,7 @@ object Utils {
         'ю' to "yu",
         'я' to "ya"
     )
+
     fun parseFullName(fullName:String?):Pair<String?, String?>{
         //Todo Fix me
         val parts:List<String>? = fullName?.split(" ")
@@ -52,7 +53,7 @@ object Utils {
         var index: Int = 0
         for (ch in payload.trim().toLowerCase()) {
             if (ch != null) {
-                if (divider == ch.toString()) {
+                if (divider == ch.toString() || ch == ' ' ) {
                     index ++
                 }
                 else {
