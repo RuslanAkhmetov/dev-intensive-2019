@@ -32,12 +32,12 @@ fun Date.humanizeDiff(date: Date = Date()):String {
     val diffValue = this.time - date.time
 
     when{
-        diffValue > 360*DAY ->  return "более чм через год"
+        diffValue > 360*DAY ->  return "более чем через год"
 
-        diffValue >= DAY   -> return "через " + diffValue / DAY +  " " +  TimeUnits.DAY.plural(diffValue / DAY)
-        diffValue >= HOUR  -> return "через " + diffValue / HOUR +  " " +  TimeUnits.HOUR.plural(diffValue / HOUR)
-        diffValue >= MINUTE -> return "через " + diffValue / MINUTE +  " " +  TimeUnits.MINUTE.plural(diffValue / MINUTE)
-        diffValue > 0      -> return "через " + diffValue / SECOND +  " " +  TimeUnits.SECOND.plural(diffValue / SECOND)
+        diffValue >= DAY   -> return "через " + TimeUnits.DAY.plural(diffValue / DAY)
+        diffValue >= HOUR  -> return "через " + TimeUnits.HOUR.plural(diffValue / HOUR)
+        diffValue >= MINUTE -> return "через " + TimeUnits.MINUTE.plural(diffValue / MINUTE)
+        diffValue > 0      -> return "через " + TimeUnits.SECOND.plural(diffValue / SECOND)
 
         diffValue >= -1*SECOND ->  return "только что"                                    //0с - 1с "только что"
 
@@ -45,15 +45,15 @@ fun Date.humanizeDiff(date: Date = Date()):String {
 
         diffValue >= -75*SECOND -> return "минуту назад"                                 //45с - 75с "минуту назад"
 
-        diffValue >= -45*MINUTE -> return "${-1*diffValue/MINUTE} " +  TimeUnits.HOUR.plural(diffValue / MINUTE) + " назад"         //75с - 45мин "N минут назад"
+        diffValue >= -45*MINUTE -> return TimeUnits.HOUR.plural(diffValue / MINUTE) + " назад"         //75с - 45мин "N минут назад"
 
         diffValue >= -75*MINUTE -> return "час назад"                                    //45мин - 75мин "час назад"
 
-        diffValue >= -22*HOUR -> return "${-1*diffValue / HOUR} " + TimeUnits.HOUR.plural(diffValue / HOUR) + " назад"            //75мин 22ч "N часов назад"
+        diffValue >= -22*HOUR -> return TimeUnits.HOUR.plural(diffValue / HOUR) + " назад"            //75мин 22ч "N часов назад"
 
         diffValue >= -26*HOUR -> return "день назад"                                  //22ч - 26ч "день назад"
 
-        diffValue >= -360*DAY -> return "${-1*diffValue/ DAY} " +   TimeUnits.DAY.plural(diffValue  / DAY) + " назад"          //26ч - 360д "N дней назад"
+        diffValue >= -360*DAY -> return TimeUnits.DAY.plural(diffValue  / DAY) + " назад"          //26ч - 360д "N дней назад"
 
         diffValue < -360*DAY -> return "более года назад"                //>360д "более года назад"
 
