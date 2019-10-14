@@ -29,7 +29,7 @@ fun Date.add(value:Int, units: TimeUnits=TimeUnits.SECOND): Date{
 
 
 fun Date.humanizeDiff(date: Date = Date()):String {
-    val diffValue = date.time - Date().time
+    val diffValue = this.time - date.time
 
     when{
         diffValue > 360*DAY ->  return "более чм через год"
