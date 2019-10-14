@@ -50,23 +50,36 @@ object Utils {
 
     fun transliteration(payload:String, divider:String = " "):String {
         // Проебразовать кирилицу латиницу
-        var latStr= Array(2){i->""}
+        //var latStr= Array(2){i->""}
+        if (payload.length == 0 ) return payload
+        var lStr:String =""
         var letter : String? =""
-        var index: Int = 0
+        //var index: Int = 0
+        var lCapital: Boolean  = true
+        var dAdded : Boolean = false
         for (ch in payload.trim().toLowerCase()) {
             if (ch != null) {
                 if (divider == ch.toString() || ch == ' ' ) {
-                    index ++
-                }
+                        lStr = lStr + divider
+                        lCapital = true
+
+                    }
                 else {
-                    if (CyrilicToLatMap[ch] == null) letter = ch.toString()
-                    else letter = CyrilicToLatMap[ch]
-                    latStr[index] = latStr[index] + letter
+                        if (CyrilicToLatMap[ch] == null) letter = ch.toString()
+                        else letter = CyrilicToLatMap[ch]
+                        if (lCapital==true) {
+                            lStr = lStr + letter?.capitalize()
+                            lCapital=false
+                        }
+                        else lStr = lStr + letter
+                    }
+                    //latStr[index] = latStr[index] + letter
                 }
             }
+        return lStr
         }
-        return latStr[0].capitalize() + divider + latStr[1].capitalize()
-     }
+
+
 
     fun toInitials(firstName:String?, lastName:String?):String? {
         //Преобразовать имя и фамилию в инициалы

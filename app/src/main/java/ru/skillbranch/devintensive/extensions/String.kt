@@ -13,7 +13,7 @@ fun String.truncate(index:Int=16):String?{
 fun String.stripHtml():String?{
     //for (ch:Char in this){}
     //var convString:String =this
-    var regex = Regex(pattern="""<[\/\w\s\d\=\"\']+>|\&[\#\w\d]+\;""")
+    var regex = Regex(pattern="""<[\/\w\s\d\=\"\'\\]+>|\&[\#\w\d\\]+\;""")
     var convString:String = regex.replace(this,"")
     regex="""\s\s*""".toRegex()
     convString = regex.replace(convString," ")
