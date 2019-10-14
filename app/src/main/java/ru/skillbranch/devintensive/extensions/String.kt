@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.extensiones
+package ru.skillbranch.devintensive.extensions
 
 fun String.truncate(index:Int=16):String?{
     var convStr:String =""

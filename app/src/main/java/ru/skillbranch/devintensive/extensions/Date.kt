@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.extensiones
+package ru.skillbranch.devintensive.extensions
 
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,17 +26,7 @@ fun Date.add(value:Int, units: TimeUnits=TimeUnits.SECOND): Date{
     return this
 }
 
-fun Date.humanizeDiff_(date: Date = Date()):String{
-    //TODO("not implemented") //Домашнеее задание определить разницу между текущей датой и датой в днях или часах
-    // например "10 секунд назад, четыре дня назад, с учетом склонения числительных
-    val diffValue = date.time - this.time
-    val humanDate:Pair<Long, TimeUnits>
-    if (diffValue >= DAY )  humanDate = Pair(diffValue / DAY , TimeUnits.DAY)
-    else if (diffValue >= HOUR ) humanDate = Pair(diffValue / HOUR , TimeUnits.HOUR)
-    else if (diffValue >= MINUTE ) humanDate = Pair(diffValue / MINUTE , TimeUnits.MINUTE)
-    else humanDate = Pair(diffValue / SECOND , TimeUnits.SECOND)
-    return humanDate.first.toString() +  " " + humanDate.second.plural(humanDate.first) //plural(humanDate.first, humanDate.second)
-}
+
 
 fun Date.humanizeDiff(date: Date = Date()):String {
     val diffValue = date.time - Date().time
@@ -47,7 +37,7 @@ fun Date.humanizeDiff(date: Date = Date()):String {
         diffValue >= DAY   -> return "через " + diffValue / DAY +  " " +  TimeUnits.DAY.plural(diffValue / DAY)
         diffValue >= HOUR  -> return "через " + diffValue / HOUR +  " " +  TimeUnits.HOUR.plural(diffValue / HOUR)
         diffValue >= MINUTE -> return "через " + diffValue / MINUTE +  " " +  TimeUnits.MINUTE.plural(diffValue / MINUTE)
-        diffValue >= 0      -> return "через " + diffValue / SECOND +  " " +  TimeUnits.SECOND.plural(diffValue / SECOND)
+        diffValue > 0      -> return "через " + diffValue / SECOND +  " " +  TimeUnits.SECOND.plural(diffValue / SECOND)
 
         diffValue >= -1*SECOND ->  return "только что"                                    //0с - 1с "только что"
 
