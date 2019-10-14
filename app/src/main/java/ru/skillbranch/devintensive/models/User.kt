@@ -34,7 +34,6 @@ data class User (
         fun lastVisit(lastVisit:Date) = apply{this.lastVisit=lastVisit}
         fun isOnline(isOnline:Boolean) = apply{this.isOnline=isOnline}
         fun build()=User(id, firstName, lastName, avatar, rating, respect, lastVisit, isOnline)
-
     }
 
     var introBit:String
