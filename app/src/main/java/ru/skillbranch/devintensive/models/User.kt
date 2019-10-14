@@ -15,7 +15,7 @@ data class User (
     val isOnline:Boolean = false
 
 ){
-    data class Buider(
+    data class Builder(
         var id:String= "",
         var firstName:String? = null,
         var lastName:String? = null,
