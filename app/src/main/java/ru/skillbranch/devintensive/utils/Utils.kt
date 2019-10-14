@@ -40,8 +40,10 @@ object Utils {
     fun parseFullName(fullName:String?):Pair<String?, String?>{
         //Todo Fix me
         val parts:List<String>? = fullName?.split(" ")
-        val firstName = parts?.getOrNull(0)
-        val lastName = parts?.getOrNull(1)
+        var firstName :String? = parts?.getOrNull(0)
+        var lastName :String? = parts?.getOrNull(1)
+        if (firstName!= null && firstName.length == 0) firstName = null
+        if (lastName!= null && lastName.length == 0) lastName = null
         //        return Pair(firstName, lastName)
         return firstName to lastName
     }

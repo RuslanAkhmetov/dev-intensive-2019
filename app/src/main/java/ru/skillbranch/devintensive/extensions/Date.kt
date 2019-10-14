@@ -65,30 +65,30 @@ fun Date.humanizeDiff(date: Date = Date()):String {
 enum class TimeUnits {
     SECOND{
         override fun plural(volume: Long)=when(abs(volume)%10){
-            1L -> "секунду"
-            in 2L .. 4L -> "секунды"
-            else -> "секунд"
+            1L -> "${abs(volume)} секунду"
+            in 2L .. 4L -> "${abs(volume)} секунды"
+            else -> "${abs(volume)} секунд"
         }
     },
     MINUTE {
         override fun plural(volume: Long): String=when(abs(volume)%10) {
-            1L -> "минуту"
-            in 2L..4L -> "минуты"
-            else -> "минут"
+            1L -> "${abs(volume)} минуту"
+            in 2L..4L -> "${abs(volume)} минуты"
+            else -> "${abs(volume)} минут"
         }
     },
     HOUR {
         override fun plural(volume: Long): String=when(abs(volume)%10) {
-            1L -> "час"
-            in 2L..4L -> "часа"
-            else -> "часов"
+            1L -> "${abs(volume)} час"
+            in 2L..4L -> "${abs(volume)} часа"
+            else -> "${abs(volume)} часов"
         }
     },
     DAY {
         override fun plural(volume: Long): String=when(abs(volume)%10) {
-            1L -> "день"
-            in 2L..4L -> "дня"
-            else -> "дней"
+            1L -> "${abs(volume)} день"
+            in 2L..4L -> "${abs(volume)} дня"
+            else -> "${abs(volume)} дней"
         }
     };
 

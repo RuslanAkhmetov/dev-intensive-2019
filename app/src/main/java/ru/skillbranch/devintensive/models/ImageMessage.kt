@@ -10,5 +10,5 @@ class ImageMessage (
     date: Date = Date(),
     var image:String?
 ) : BaseMessage(id, from, chat, isIncoming, date){
-    override fun formatMessage(): String = "id=$id, from=${from?.firstName}, ${if(isIncoming) "получил сизображение" else "отправил изображение"} $image"
+    override fun formatMessage(): String = "${from?.firstName} ${if(isIncoming) " получил" else " отправил"}  изображение $image"
 }
