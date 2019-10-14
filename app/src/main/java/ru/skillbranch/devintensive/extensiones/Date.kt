@@ -1,44 +1,13 @@
-package ru.skillbranch.devintensive.Extensiones
+package ru.skillbranch.devintensive.extensiones
 
-import ru.skillbranch.devintensive.Extensiones.TimeUnits.*
-import java.lang.IllegalStateException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
-import kotlin.math.absoluteValue
 
 const val SECOND = 1000L
 const val MINUTE = 60* SECOND
 const val HOUR = 60 * MINUTE
 const val DAY = 24 * HOUR
-
-private val secondsp = listOf<String>(
-    "секунд",
-    "секунда",
-    "секунды",
-    "секунд"
-)
-
-val minutesp = listOf<String>(
-    "минут",
-    "минута",
-    "минуты",
-    "минут"
-)
-
-val hoursp = listOf<String>(
-    "часов",
-    "час",
-    "часа",
-    "часов"
-
-)
-
-val daysp = listOf<String>(
-    "дней",
-    "день",
-    "дня"
-)
 
 fun Date.format(pattern:String="HH:mm:ss dd.MM.yy"):String {
     val dateFormat = SimpleDateFormat(pattern, Locale("ru"))
@@ -60,7 +29,7 @@ fun Date.add(value:Int, units: TimeUnits=TimeUnits.SECOND): Date{
 fun Date.humanizeDiff_(date: Date = Date()):String{
     //TODO("not implemented") //Домашнеее задание определить разницу между текущей датой и датой в днях или часах
     // например "10 секунд назад, четыре дня назад, с учетом склонения числительных
-    val diffValue = Date().time - this.time
+    val diffValue = date.time - this.time
     val humanDate:Pair<Long, TimeUnits>
     if (diffValue >= DAY )  humanDate = Pair(diffValue / DAY , TimeUnits.DAY)
     else if (diffValue >= HOUR ) humanDate = Pair(diffValue / HOUR , TimeUnits.HOUR)
@@ -70,8 +39,8 @@ fun Date.humanizeDiff_(date: Date = Date()):String{
 }
 
 fun Date.humanizeDiff(date: Date = Date()):String {
-    val diffValue = this.time - Date().time
-    val humanDate:Pair<Long, TimeUnits>
+    val diffValue = date.time - Date().time
+
     when{
         diffValue > 360*DAY ->  return "более чм через год"
 
@@ -101,9 +70,6 @@ fun Date.humanizeDiff(date: Date = Date()):String {
         else                 -> return "не знаю такого интервала"
     }
 }
-
-
-
 
 
 enum class TimeUnits {

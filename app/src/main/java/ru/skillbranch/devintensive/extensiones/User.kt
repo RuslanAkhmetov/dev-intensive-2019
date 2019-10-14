@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.Extensiones
+package ru.skillbranch.devintensive.extensiones
 
 import ru.skillbranch.devintensive.models.User
 import ru.skillbranch.devintensive.models.UserView

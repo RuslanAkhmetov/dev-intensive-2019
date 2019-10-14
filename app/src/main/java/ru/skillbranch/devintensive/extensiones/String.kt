@@ -1,8 +1,8 @@
-package ru.skillbranch.devintensive.Extensiones
+package ru.skillbranch.devintensive.extensiones
 
 fun String.truncate(index:Int=16):String?{
     var convStr:String =""
-    if (this!=null && index != 0){
+    if (index != 0){
         if (this.length <= index) return this
         else convStr = this.take(index).trimEnd() + "..."
     }
@@ -12,9 +12,9 @@ fun String.truncate(index:Int=16):String?{
 
 fun String.stripHtml():String?{
     //for (ch:Char in this){}
-    var convString:String =this
+    //var convString:String =this
     var regex = Regex(pattern="""<[\/\w\s\d\=\"\']+>|\&[\#\w\d]+\;""")
-    convString = regex.replace(this,"")
+    var convString:String = regex.replace(this,"")
     regex="""\s\s*""".toRegex()
     convString = regex.replace(convString," ")
 
