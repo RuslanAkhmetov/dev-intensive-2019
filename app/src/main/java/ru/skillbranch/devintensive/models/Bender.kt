@@ -17,7 +17,7 @@ class Bender (var status:Status = Status.NORMAL, var question:Question = Questio
 
         return if(question.answers.contains(answer)){
             question=question.nextQuestion()
-            status=Status.NORMAL
+            //status=Status.NORMAL
             "Отлично - ты справился\n${question.question}" to status.color
         } else{
             //TODO change status
@@ -67,7 +67,7 @@ class Bender (var status:Status = Status.NORMAL, var question:Question = Questio
         SERIAL(question = "Мой серийный номер?", answers=listOf("2716057")){
             override fun nextQuestion():Question = IDLE
         },
-        IDLE(question = "На этом все вопросов больше нет.", answers=listOf()){
+        IDLE(question = "На этом все, вопросов больше нет.", answers=listOf()){ //Отлично - ты справился\nНа этом все, вопросов больше нет
             override fun nextQuestion():Question = IDLE
         };
 
