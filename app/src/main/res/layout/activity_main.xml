@@ -34,20 +34,23 @@
             android:background="@color/color_primary"
             android:layout_marginTop="@dimen/spacing_normal_16">
 
-     <EditText
-             android:id="@+id/et_message"
-             android:layout_width="0dp"
-             android:layout_height="wrap_content"
-             android:layout_weight="1"
-             android:lines="1"
-             android:textColor="@color/color_gray_ligh"
-             android:textColorHint="@color/color_gray_ligh"
-             android:hint="Введите текст"
-             android:paddingTop="@dimen/spacing_normal_16"
-             android:paddingBottom="@dimen/spacing_normal_16"
-             android:layout_marginLeft="@dimen/spacing_normal_16"
-             android:layout_marginRight="@dimen/spacing_normal_16"
-     />
+        <EditText
+                android:id="@+id/et_message"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:lines="1"
+                android:textColor="@color/color_gray_ligh"
+                android:textColorHint="@color/color_gray_ligh"
+                android:hint="Введите текст"
+                android:paddingTop="@dimen/spacing_normal_16"
+                android:paddingBottom="@dimen/spacing_normal_16"
+                android:layout_marginLeft="@dimen/spacing_normal_16"
+                android:layout_marginRight="@dimen/spacing_normal_16"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+
+        />
 
      <ImageView
                 android:id ="@+id/iv_send"

@@ -17,7 +17,7 @@ class Bender (var status:Status = Status.NORMAL, var question:Question = Questio
 
         return if(question.answers.contains(answer)){
             question=question.nextQuestion()
-
+            status=Status.NORMAL
             "Отлично - ты справился\n${question.question}" to status.color
         } else{
             //TODO change status
@@ -44,9 +44,9 @@ class Bender (var status:Status = Status.NORMAL, var question:Question = Questio
 
         fun nextStatus():Status{
             return if(this.ordinal<values().lastIndex){
-                values().[this.ordinal+1]
+                values()[this.ordinal+1]
             }else{
-                values().[0]
+                values()[0]
             }
         }
     }
