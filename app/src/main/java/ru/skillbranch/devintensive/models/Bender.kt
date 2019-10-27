@@ -40,7 +40,7 @@ class Bender (var status:Status = Status.NORMAL, var question:Question = Questio
         NORMAL(Triple(255,255,255)),
         WARNING(Triple(255,120,0)),
         DANCER(Triple(255,60,60)),
-        CRITICAL(Triple(255,255,0));
+        CRITICAL(Triple(255,0,255,0));
 
         fun nextStatus():Status{
             return if(this.ordinal<values().lastIndex){
@@ -67,7 +67,7 @@ class Bender (var status:Status = Status.NORMAL, var question:Question = Questio
         SERIAL(question = "Мой серийный номер?", answers=listOf("2716057")){
             override fun nextQuestion():Question = IDLE
         },
-        IDLE(question = "На этом все, вопросов больше нет.", answers=listOf()){ //Отлично - ты справился\nНа этом все, вопросов больше нет
+        IDLE(question = "На этом все, вопросов больше нет", answers=listOf()){ //Отлично - ты справился\nНа этом все, вопросов больше нет
             override fun nextQuestion():Question = IDLE
         };
 
